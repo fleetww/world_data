@@ -19,7 +19,6 @@ def request_page(url):
 def scraper():
     base_url = 'https://data.worldbank.org'
     country_list_url = base_url + '/country'
-
     try:
         page = request_page(country_list_url)
     except Exception as e:
@@ -33,7 +32,6 @@ def scraper():
         countries = letter.find_all('a')
         for country in countries:
             print(country.text)
-
             country_url = base_url + country.get('href')
             try:
                 country_page = request_page(country_url)
